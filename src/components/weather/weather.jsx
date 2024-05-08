@@ -36,18 +36,9 @@ export default function Weather(){
                     }else{
                         setLoading(false);
                         setErrorMsg(null);
-                        setWeatherData({
-                            city: result.name,
-                            country: result.sys.country,
-                            temp: convert(result.main.temp),
-                            max: convert(result.main.temp_max),
-                            min: convert(result.main.temp_min),
-                            humidity: result.main.humidity,
-                            description: result.weather[0] ? result.weather[0].description : '',
-                            icon: result.weather[0] ? result.weather[0].icon : ''
-                        });
+                        setData(result);
                     }
-                },2000);
+                },1000);
             }
 
         } catch (error) {
@@ -74,24 +65,28 @@ export default function Weather(){
                     }else{
                         setLoading(false);
                         setErrorMsg(null);
-                        setWeatherData({
-                            city: result.name,
-                            country: result.sys.country,
-                            temp: convert(result.main.temp),
-                            max: convert(result.main.temp_max),
-                            min: convert(result.main.temp_min),
-                            humidity: result.main.humidity,
-                            description: result.weather[0] ? result.weather[0].description : '',
-                            icon: result.weather[0] ? result.weather[0].icon : ''
-                        });
+                        setData(result);
                     }
-                },2000);
+                },1000);
             }
 
         } catch (error) {
             console.log(error);
             setErrorMsg(`An error has occurred, ${error}`);
         }
+    };
+
+    function setData(result){
+        setWeatherData({
+            city: result.name,
+            country: result.sys.country,
+            temp: convert(result.main.temp),
+            max: convert(result.main.temp_max),
+            min: convert(result.main.temp_min),
+            humidity: result.main.humidity,
+            description: result.weather[0] ? result.weather[0].description : '',
+            icon: result.weather[0] ? result.weather[0].icon : ''
+        });
     };
 
     function convert(kelvin){

@@ -1,7 +1,15 @@
+:root{
+  --gradient: linear-gradient(45deg, rgb(116, 211, 206), rgb(195, 116, 211), rgb(116, 211, 206));
+}
+
 body{
   margin: 0;
   padding: 0;
   background-color: rgb(116, 211, 206);
+  background-image: var(--gradient);
+  background-size: 400%;
+  min-height: 100vh;
+  animation: bg-animation 20s infinite alternate;
 }
 
 #root {
@@ -12,19 +20,38 @@ body{
 }
 
 .weather-app-container{
-  padding: 30px 0;
-  margin: 100px 0;
+  padding: 0;
+  margin: 70px 0;
+  max-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
 }
 
 @media (min-width:768px){
   body{
     background-color: transparent;
+    background-image: var(--gradient);
+    background-size: 400%;
+    animation: bg-animation 20s infinite alternate;
   }
   .weather-app-container{
     background-color: rgb(116, 211, 206);
     border-radius: 20px;
+    padding: 30px 0;
     margin: 50px 15%;
     filter: drop-shadow(5px 5px 10px #00000094);
+    height: auto;
+  }
+}
+
+@keyframes bg-animation{
+  0% {
+    background-position: left;
+  }
+  100%{
+    background-position: right;
   }
 }
 
@@ -107,11 +134,5 @@ body{
 }
 
 .weather-info img{
-  width: 100px;
-}
-
-@media (min-width:768px){
-  .weather-info img{
-    width: 60px;
-  }
+  width: 60px;
 }

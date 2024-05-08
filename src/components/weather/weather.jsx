@@ -5,15 +5,60 @@ import lupa from "../../../public/lupa.svg";
 
 export default function Weather(){
 
-    const [search, setSearch] = useState('Caracas');
+    const [search, setSearch] = useState('');
     const [loading, setLoading] = useState(false);
     const [errorMsg, setErrorMsg] = useState(null);
     const [weatherData, setWeatherData] = useState(null);
 
     const appID = import.meta.env.VITE_REACT_APP_API_ID;
-    const url = `https://api.openweathermap.org/data/2.5/weather?q=${search}&appid=${appID}`;
+
+    function geolocationAPI(){
+        navigator.geolocation.getCurrentPosition(position => {
+            const {latitude, longitude} = position.coords;
+            const url = `https://api.openweathermap.org/data/2.5/weather?lat=${latitude}&lon=${longitude}&appid=${appID}`
+            getWeather(url)
+        });
+    };
+
+    async function getWeather(url){
+        try {
+            
+            setLoading(true);
+            const response = await fetch(url);
+            const result = await response.json();
+
+            if(result){
+                setTimeout(()=>{
+                    if(result.cod === '404'){
+
+                        setLoading(false);
+                        setErrorMsg(`Error, ${result.message}`); 
+                    }else{
+                        setLoading(false);
+                        setErrorMsg(null);
+                        setWeatherData({
+                            city: result.name,
+                            country: result.sys.country,
+                            temp: convert(result.main.temp),
+                            max: convert(result.main.temp_max),
+                            min: convert(result.main.temp_min),
+                            humidity: result.main.humidity,
+                            description: result.weather[0] ? result.weather[0].description : '',
+                            icon: result.weather[0] ? result.weather[0].icon : ''
+                        });
+                    }
+                },2000);
+            }
+
+        } catch (error) {
+            console.log(error);
+            setErrorMsg(`An error has occurred, ${error}`);
+        }
+    };
 
     async function handleSearch(){
+
+        const url = `https://api.openweathermap.org/data/2.5/weather?q=${search}&appid=${appID}`;
         try {
             
             setLoading(true);
@@ -66,7 +111,7 @@ export default function Weather(){
 
     useEffect(()=>{
 
-        handleSearch();
+        geolocationAPI();
     }, []);
 
     return <div className="weather-app-container">
@@ -93,6 +138,11 @@ export default function Weather(){
                 <p>humidity: {weatherData.humidity}</p>
                 <h2 style={{textTransform: 'capitalize'}}>{weatherData.description}</h2>
                 <img src={`https://openweathermap.org/img/wn/${weatherData.icon}.png`} alt="icon" />
+            </div>
+        }
+        {
+            weatherData == null && !loading && errorMsg == null && <div className="weather-info">
+                <h2>You haven't initialized a search yet</h2>
             </div>
         }
     </div>

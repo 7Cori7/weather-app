@@ -1,0 +1,117 @@
+body{
+  margin: 0;
+  padding: 0;
+  background-color: rgb(116, 211, 206);
+}
+
+#root {
+  max-width: 1280px;
+  margin: 0;
+  padding: 0;
+  text-align: center;
+}
+
+.weather-app-container{
+  padding: 30px 0;
+  margin: 100px 0;
+}
+
+@media (min-width:768px){
+  body{
+    background-color: transparent;
+  }
+  .weather-app-container{
+    background-color: rgb(116, 211, 206);
+    border-radius: 20px;
+    margin: 50px 15%;
+    filter: drop-shadow(5px 5px 10px #00000094);
+  }
+}
+
+/*======================================================================*/
+.search-container{
+  width: 100%;
+  display: flex;
+  justify-content: center;
+}
+
+.search-engine{
+  width: 100%;
+  flex-direction: column;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  margin-bottom: 50px;
+  margin-top: 0;
+  gap: 10px;
+}
+
+.search-engine input{
+  width: 80%;
+  padding: 18px;
+  border: none;
+  border-radius: 8px;
+  outline: none;
+  background-color: white;
+  color: #555;
+}
+
+.search-engine input:focus{
+  outline: lightseagreen 2px solid;
+}
+
+.search-engine button{
+  width: 50%;
+  border: none;
+  border-radius: 8px;
+  background-color: lightseagreen;
+  color: white;
+  outline: none;
+  cursor: pointer;
+  padding: 20px 0;
+  transition: all .5s ease-in-out;
+  font-size: 1.2em;
+}
+
+.search-engine button:hover{
+  background-color: rgb(125, 226, 192);
+}
+
+@media (min-width:768px){
+  .search-engine{
+    flex-direction: row;
+    width: 70%;
+    justify-content: center;
+    margin-bottom: 30px;
+    margin-top: 10px;
+  }
+  .search-engine input{
+    width: 90%;
+    padding: 12px;
+  }
+  .search-engine button{
+    max-width: 100px;
+    padding: 12px 20px;
+    font-size: 1em;
+  }
+}
+/*======================================================================*/
+.weather-info{
+  color: rgb(15, 77, 73);
+}
+
+.weather-info h1{
+  font-size: 3em;
+  margin: 0;
+  padding: 0;
+}
+
+.weather-info img{
+  width: 100px;
+}
+
+@media (min-width:768px){
+  .weather-info img{
+    width: 60px;
+  }
+}

@@ -9,5 +9,7 @@ The app will show you:
 - The humidity
 - A description of the weather in general
 
+the app is hosted on vercel and you can try it here -> https://weather-app-black-kappa.vercel.app/
+
 
 And that's it! 🌩️🌩️🌩️

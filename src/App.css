@@ -1,13 +1,38 @@
 :root{
   --gradient: linear-gradient(45deg, rgb(116, 211, 206), rgb(199, 150, 209), rgb(116, 211, 206));
+  --bgColor: rgb(116, 211, 206);
+  --bgContainer: rgba(116, 211, 206, 0.144);
+  --border: solid rgb(116, 211, 206) 1px;
+  --btnColor: lightseagreen;
+  --btnHover: rgb(125, 226, 192);
+  --textPrimary: rgb(15, 77, 73);
+  --textFooter: #555;
+}
+
+[data-theme = "sunny"]{
+  --gradient: linear-gradient(45deg, rgb(170, 211, 116), rgb(183, 150, 209), rgb(170, 211, 116));
+  --bgColor: rgb(170, 211, 116);
+  --bgContaniner: rgba(170, 211, 116, 0.267);
+}
+
+[data-theme = "rainy"]{
+  --gradient: linear-gradient(45deg, rgb(116, 149, 211), rgb(103, 69, 184), rgb(116, 149, 211));
+  --bgColor: rgb(116, 149, 211);
 }
 
 body{
   margin: 0;
   padding: 0;
-  background-color: rgb(116, 211, 206);
+  box-sizing: border-box;
+}
+
+.App{
+  margin: 0;
+  padding: 0;
+  background-color: var(--bgColor);
   background-image: var(--gradient);
   background-size: 400%;
+  border: solid transparent .5px;
   min-height: 100vh;
   animation: bg-animation 20s infinite alternate;
 }
@@ -29,20 +54,35 @@ body{
   align-items: center;
 }
 
+footer p{
+  color: var(--textFooter);
+}
+
 @media (min-width:768px){
-  body{
+  .App{
     background-color: transparent;
     background-image: var(--gradient);
     background-size: 400%;
     animation: bg-animation 20s infinite alternate;
+    border: solid transparent .5px;
+    min-width: 100vw;
   }
   .weather-app-container{
-    background-color: rgb(116, 211, 206);
+    background: var(--bgContainer);
+    border: var(--border);
     border-radius: 20px;
     padding: 30px 0;
     margin: 50px 15%;
-    filter: drop-shadow(5px 5px 10px #00000094);
+    -webkit-box-shadow: 10px 10px 15px -3px rgba(51,49,51,0.2);
+    -moz-box-shadow: 10px 10px 15px -3px rgba(51,49,51,0.2);
+    box-shadow: 10px 10px 15px -3px rgba(51,49,51,0.2);
+    backdrop-filter: blur(30px);
     height: auto;
+    transform: translateX(-2%);
+  }
+
+  footer p{
+    padding-bottom: 20px;
   }
 }
 
@@ -79,19 +119,19 @@ body{
   border: none;
   border-radius: 8px;
   outline: none;
-  background-color: white;
+  background-color: rgba(255, 255, 255, 0.397);
   color: #555;
 }
 
 .search-engine input:focus{
-  outline: lightseagreen 2px solid;
+  outline: #fff 1px solid;
 }
 
 .search-engine button{
   width: 50%;
   border: none;
   border-radius: 8px;
-  background-color: lightseagreen;
+  background-color: var(--btnColor);
   color: white;
   outline: none;
   cursor: pointer;
@@ -101,7 +141,7 @@ body{
 }
 
 .search-engine button:hover{
-  background-color: rgb(125, 226, 192);
+  background-color: var(--btnHover);
 }
 
 @media (min-width:768px){
@@ -124,7 +164,7 @@ body{
 }
 /*======================================================================*/
 .weather-info{
-  color: rgb(15, 77, 73);
+  color: var(--textPrimary);
 }
 
 .weather-info h1{

@@ -9,6 +9,7 @@ The app will show you:
 - The temperature in celcius, also the min temp, and max temp.
 - The humidity
 - A description of the weather in general
+- Depending on the weather, the theme colors of the app will change.
 
 You can try the web app here -> https://weather-app-black-kappa.vercel.app/
 

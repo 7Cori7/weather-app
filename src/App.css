@@ -12,12 +12,23 @@
 [data-theme = "sunny"]{
   --gradient: linear-gradient(45deg, rgb(170, 211, 116), rgb(183, 150, 209), rgb(170, 211, 116));
   --bgColor: rgb(170, 211, 116);
-  --bgContaniner: rgba(170, 211, 116, 0.267);
+  --bgContaniner: rgba(170, 211, 116, 0.144);
+  --border: solid 1px rgb(170, 211, 116);
+  --btnColor: rgb(216, 90, 159);
+  --btnHover: rgb(185, 63, 130);
+  --textPrimary: rgb(49, 49, 49);
+  --textFooter: #696969;
 }
 
 [data-theme = "rainy"]{
   --gradient: linear-gradient(45deg, rgb(116, 149, 211), rgb(103, 69, 184), rgb(116, 149, 211));
   --bgColor: rgb(116, 149, 211);
+  --bgContainer: rgba(116, 149, 211, 0.144);
+  --border: solid 1px rgb(116, 149, 211);
+  --btnColor: rgb(89, 159, 206);
+  --btnHover: rgb(63, 85, 185);
+  --textPrimary: #fff;
+  --textFooter: #fff;
 }
 
 body{

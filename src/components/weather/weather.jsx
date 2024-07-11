@@ -1,4 +1,4 @@
-import { useEffect, useState } from "react"
+import { useState } from "react"
 import Search from "../search/search";
 import lupa from "/lupa.svg";
 
@@ -30,6 +30,7 @@ export default function Weather({loading, setLoading, errorMsg, setErrorMsg, wea
                         setData(result);
                     }
                 },1000);
+                setSearch('');
             }
 
         } catch (error) {

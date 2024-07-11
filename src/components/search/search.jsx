@@ -16,6 +16,7 @@ export default function Search({ search, setSearch, handleSearch }){
             type="text"
             placeholder="Enter city name"
             name="search"
+            autoComplete="off"
             value={search}
             onChange={(e) => setSearch(e.target.value)}
             onKeyDown={handleKeyDown}

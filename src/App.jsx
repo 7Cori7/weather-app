@@ -2,18 +2,20 @@ import { useEffect, useState } from "react"
 import './App.css'
 import Footer from './components/footer/footer';
 import Weather from './components/weather/weather';
-import useLocalStorage from './components/useLocalStorage/useLocalStorage';
 
-const weathers = [
+const sunnyWeathers = [
   'clear sky',
   'few clouds',
-  'scattered clouds',
-  'broken clouds',
+  'scattered clouds'
+];
+
+const rainyWeathers = [
   'shower rain',
   'rain',
   'thunderstorm',
   'snow',
-  'mist'
+  'mist',
+  'heavy intensity rain'
 ];
 
 function App() {
@@ -22,16 +24,22 @@ function App() {
   const [errorMsg, setErrorMsg] = useState(null);
   const [weatherData, setWeatherData] = useState(null);
 
-  const [theme, setTheme] = useLocalStorage('theme', 'default');
-
+  // themes:
+  const [theme, setTheme] = useState('default');
   function handleToggleTheme(){
+
     if(weatherData !== null){
 
-      if(weatherData.description === 'clear sky' || weatherData.description === 'few clouds' || weatherData.description === 'scattered clouds'){
+      if(sunnyWeathers.includes(weatherData.description)){
+
         setTheme('sunny');
-      }else if(weatherData.description === 'shower rain' || weatherData.description === 'light rain' || weatherData.description === 'rain' || weatherData.description === 'thunderstorm' || weatherData.description === 'snow' || weatherData.description === 'mist'){
+
+      }else if(rainyWeathers.includes(weatherData.description)){
+
         setTheme('rainy');
+        
       }else{
+
         setTheme('default');
       }
 
@@ -103,8 +111,6 @@ function App() {
 
     handleToggleTheme();
   }, [weatherData])
-
-  console.log(theme)
 
   return (
     <div className="App" data-theme={theme}>

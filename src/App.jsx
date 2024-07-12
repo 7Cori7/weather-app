@@ -36,7 +36,21 @@ const stormmyWeathers = [
   'thunderstorm with light drizzle',
   'thunderstorm with drizzle',
   'thunderstorm with heavy drizzle'
-]
+];
+
+const snowyWeathers = [
+  'light snow',
+  'snow',
+  'heavy snow',
+  'sleet',
+  'light shower sleet',
+  'shower sleet',
+  'light rain and snow',
+  'rain and snow',
+  'light shower snow',
+  'shower snow',
+  'heavy shower snow'
+];
 
 function App() {
 
@@ -61,6 +75,10 @@ function App() {
       }else if(stormmyWeathers.includes(weatherData.description)){
 
         setTheme('stormmy');
+
+      }else if(snowyWeathers.includes(weatherData.description)){
+
+        setTheme('snowy');
 
       }else{
 

@@ -17,7 +17,7 @@
   --btnColor: rgb(216, 90, 159);
   --btnHover: rgb(185, 63, 130);
   --textPrimary: rgb(49, 49, 49);
-  --textFooter: #696969;
+  --textFooter: #555;
 }
 
 [data-theme = "rainy"]{
@@ -40,6 +40,17 @@
   --btnHover: rgb(89, 159, 206);
   --textPrimary: #fff;
   --textFooter: #fff;
+}
+
+[data-theme = "snowy"]{
+  --gradient: linear-gradient(45deg, rgb(228, 228, 228), rgb(76, 79, 83), rgb(228, 228, 228));
+  --bgColor: rgb(228, 228, 228);
+  --bgContaniner: rgba(228, 228, 228, 0.144);
+  --border: solid 1px rgb(228, 228, 228);
+  --btnColor: rgb(49, 49, 49);
+  --btnHover: rgb(123, 183, 223);
+  --textPrimary: rgb(49, 49, 49);
+  --textFooter: #555;
 }
 
 body{

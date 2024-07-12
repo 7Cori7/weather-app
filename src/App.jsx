@@ -6,17 +6,37 @@ import Weather from './components/weather/weather';
 const sunnyWeathers = [
   'clear sky',
   'few clouds',
-  'scattered clouds'
+  'scattered clouds',
+  'broken clouds',
+  'overcast clouds'
 ];
 
 const rainyWeathers = [
+  'light rain',
+  'moderate rain',
   'shower rain',
   'rain',
-  'thunderstorm',
-  'snow',
-  'mist',
-  'heavy intensity rain'
+  'heavy intensity rain',
+  'very heavy rain',
+  'extreme rain',
+  'freezing rain',
+  'light intensity shower rain',
+  'heavy intensity shower rain',
+  'ragged shower rain'
 ];
+
+const stormmyWeathers = [
+  'thunderstorm with light rain',
+  'thunderstorm with rain',
+  'thunderstorm with heavy rain',
+  'light thunderstorm',
+  'thunderstorm',
+  'heavy thunderstorm',
+  'ragged thunderstorm',
+  'thunderstorm with light drizzle',
+  'thunderstorm with drizzle',
+  'thunderstorm with heavy drizzle'
+]
 
 function App() {
 
@@ -38,6 +58,10 @@ function App() {
 
         setTheme('rainy');
         
+      }else if(stormmyWeathers.includes(weatherData.description)){
+
+        setTheme('stormmy');
+
       }else{
 
         setTheme('default');

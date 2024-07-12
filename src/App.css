@@ -31,6 +31,17 @@
   --textFooter: #fff;
 }
 
+[data-theme = "stormmy"]{
+  --gradient: linear-gradient(45deg, rgb(76, 79, 83), rgb(37, 37, 37), rgb(76, 79, 83));
+  --bgColor: rgb(76, 79, 83);
+  --bgContainer: rgba(76, 79, 83, 0.144);
+  --border: solid 1px rgb(76, 79, 83);
+  --btnColor: rgb(63, 85, 185);
+  --btnHover: rgb(89, 159, 206);
+  --textPrimary: #fff;
+  --textFooter: #fff;
+}
+
 body{
   margin: 0;
   padding: 0;
